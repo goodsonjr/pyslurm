@@ -1879,7 +1879,7 @@ cdef class job:
         else:
             jobid = jobid.encode("UTF-8")
         # load the job which sets the self._job_ptr pointer
-        rc = slurm.slurm_load_job(&self._job_ptr, jobid, self._ShowFlags)
+        rc = slurm.slurm_load_job(&self._job_ptr, int(jobid), self._ShowFlags)
 
         if rc != slurm.SLURM_SUCCESS:
             apiError = slurm.slurm_get_errno()
